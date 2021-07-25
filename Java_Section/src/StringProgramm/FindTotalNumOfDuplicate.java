@@ -2,34 +2,41 @@ package StringProgramm;
 
 import java.util.HashSet;
 
-public class FindNumOfOccOfEachChar {
+public class FindTotalNumOfDuplicate {
 
 	public static void main(String[] args) {
 		String s="india";
 		
 		// create Set collection to get only unique char
 		HashSet<Character> set = new HashSet<Character>();
+		
 		for(int i=0; i<s.length(); i++)
 		{
 			set.add(s.charAt(i));
 		}
 		
 		//compare each character of set with all char og given string
+		
+		int totalNumOfDuplicate=0;
 		for (Character ch : set) {
+			int count=0;
+			for(int i=0; i<s.length(); i++)
 			{
-				int count=0;
-				for(int i=0; i<s.length(); i++)
+				if(ch==s.charAt(i))
 				{
-					if(ch==s.charAt(i))
-					{
-						count++;
-					}
+					count++;
 				}
-				System.out.println(ch+ " = "+count);
 			}
-			
+			//print char and count
+			if(count>1)
+			{
+				 totalNumOfDuplicate ++;
+			}
+			System.out.println(ch+ " = "+count);
 		}
-		
-		
 	}
+
 }
+
+
+
